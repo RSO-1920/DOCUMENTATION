@@ -1,0 +1,14 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: proxy-ingress
+  annotations:
+    kubernetes.io/ingress.class: "kong"
+spec:
+  rules:
+    - http:
+        paths:         
+          - path: /catalog
+            backend:
+              serviceName: rso1920-catalog
+              servicePort: 8088
