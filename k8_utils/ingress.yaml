@@ -12,3 +12,19 @@ spec:
             backend:
               serviceName: rso1920-catalog
               servicePort: 8088
+          - path: /streamer
+            backend:
+              serviceName: rso1920-video-streamer
+              servicePort: 8084
+          - path: /file-manager
+            backend:
+              serviceName: rso1920-file-manager
+              servicePort: 8089
+          - path: /channels
+            backend:
+              serviceName: rso1920-channels
+              servicePort: 8080
+          - path: /users
+            backend:
+              serviceName: rso1920-users
+              servicePort: 8083
