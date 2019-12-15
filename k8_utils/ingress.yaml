@@ -28,3 +28,7 @@ spec:
             backend:
               serviceName: rso1920-users
               servicePort: 8083
+          - path: /incomingmsg
+            backend:
+              serviceName: rso1920-incoming-msg
+              servicePort: 8090
