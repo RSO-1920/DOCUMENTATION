@@ -1,0 +1,15 @@
+kubectl run --generator=run-pod/v1 -it --rm load-generator --image=busybox /bin/sh
+kubectl run -i --tty load-generator --image=busybox /bin/sh  
+
+CATALOG
+kubectl autoscale deployment rso1920-catalog-deployment --cpu-percent=50 --min=1 --max=10
+while true; do wget -q -O- http://34.65.1.34/catalog/v1/catalog/user/1; done
+
+
+CHANNELS
+kubectl autoscale deployment rso1920-channels-deployment --cpu-percent=50 --min=1 --max=10
+while true; do wget -q -O- http://34.65.1.34/channels/v1/channels/userChannels/2; done
+
+CHANNEL MESSAGES
+kubectl autoscale deployment rso1920-incoming-msg-deployment --cpu-percent=50 --min=1 --max=10
+while true; do wget -q -O- http://34.65.1.34/incomingmsg/v1/msg/1; done

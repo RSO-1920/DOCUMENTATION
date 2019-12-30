@@ -32,3 +32,7 @@ spec:
             backend:
               serviceName: rso1920-incoming-msg
               servicePort: 8090
+          - path: /filedownloader
+            backend:
+              serviceName: rso1920-file-downloader
+              servicePort: 8079
