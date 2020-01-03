@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rso1920-keycloak
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rso1920-keycloak
+  template:
+    metadata:
+      labels:
+        app: rso1920-keycloak
+    spec:
+      containers:
+        - image: jboss/keycloak
+          name: rso1920-keycloak
+          env:
+            - name: KEYCLOAK_USER
+              value: admin
+            - name: KEYCLOAK_PASSWORD
+              value: password
+          ports:
+            - containerPort: 8080
+              name: keycloak
+              protocol: TCP
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rso1920-keycloak
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8082
+      protocol: TCP
+      targetPort: keycloak
+      name: keycloak-port
+  selector:
+    app: rso1920-keycloak
