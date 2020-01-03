@@ -4,6 +4,7 @@ metadata:
   name: proxy-ingress
   annotations:
     kubernetes.io/ingress.class: "kong"
+    plugins.konghq.com: https-redirect
 spec:
   rules:
     - http:
