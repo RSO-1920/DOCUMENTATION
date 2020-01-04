@@ -37,3 +37,7 @@ spec:
             backend:
               serviceName: rso1920-file-downloader
               servicePort: 8079
+          - path: /auth
+            backend:
+              serviceName: rso1920-auth
+              servicePort: 8084
