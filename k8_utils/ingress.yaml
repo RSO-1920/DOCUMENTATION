@@ -41,3 +41,7 @@ spec:
             backend:
               serviceName: rso1920-auth
               servicePort: 8084
+          - path: /msglistener
+            backend:
+              serviceName: rso1920-messagelistener
+              servicePort: 8091
